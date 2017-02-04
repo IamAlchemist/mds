@@ -22,7 +22,7 @@ GCD 带来的另一个重要改变是，作为开发者可以将工作考虑为�
     并行队列。在自定义队列中被调度的所有block 最终都将被放入
     到系统的全局队列中和线程池中。
 
-![gcd-queues](gcd-queues.png)
+![gcd-queues](images/gcd-queues.png)
 
 ### Operation Queues
 操作队列（operation queue）是由 GCD 提供的一个队列模型的 Cocoa 抽象。
@@ -67,7 +67,7 @@ NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。
 
 当低优先级的任务获得了共享资源的锁时，高优先级任务会在低优先级的任务持有锁的期间被阻塞。如果这时候有一个中优先级的任务(该任务不需要那个共享资源)，那么它就有可能会抢占低优先级任务而被执行，因为此时高优先级任务是被阻塞的，所以中优先级任务是目前所有可运行任务中优先级最高的。此时，中优先级任务就会阻塞着低优先级任务，导致低优先级任务不能释放掉锁，这也就会引起高优先级任务一直在等待锁的释放。
 
-![priority-insersion](priority-inversion.png)
+![priority-insersion](images/priority-inversion.png)
 
     解决这个问题的方法，通常就是不要使用不同的优先级。
     当你使用 GCD 时，总是使用默认的优先级队列比较好。

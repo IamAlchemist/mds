@@ -51,7 +51,7 @@
 ### 时间分析器
 时间分析器工具用来检测CPU的使用情况。它可以告诉我们程序中的哪个方法正在消耗大量的CPU时间。
 
-![time profiler](time profiler.jpeg)
+![](images/time profiler.jpeg)
 时间分析器有一些选项来帮助我们定位到我们关心的的方法。可以使用左侧的复选框来打开。其中最有用的是如下几点：
 * 通过线程分离 - 这可以通过执行的线程进行分组。如果代码被多线程分离的话，那么就可以判断到底是哪个线程造成了问题。
 * 隐藏系统库 - 可以隐藏所有苹果的框架代码，来帮助我们寻找哪一段代码造成了性能瓶颈。由于我们不能优化框架方法，所以这对定位到我们能实际修复的代码很有用。
@@ -59,7 +59,7 @@
 
 ### Core Animation
 
-![Core Animation profiler](Core Animation profiler.jpeg)
+![Core Animation profiler](images/Core Animation profiler.jpeg)
 Core Animation工具也提供了一系列复选框选项来帮助调试渲染瓶颈：
 * Color Blended Layers - 这个选项基于渲染程度对屏幕中的混合区域进行绿到红的高亮（也就是多个半透明图层的叠加）。由于重绘的原因，混合对GPU性能会有影响，同时也是滑动或者动画帧率下降的罪魁祸首之一。
 * ColorHitsGreenandMissesRed - 当使用shouldRasterizep属性的时候，耗时的图层绘制会被缓存，然后当做一个简单的扁平图片呈现。当缓存再生的时候这个选项就用红色对栅格化图层进行了高亮。如果缓存频繁再生的话，就意味着栅格化可能会有负面的性能影响了（更多关于使用shouldRasterize的细节见第15章“图层性能”）。
@@ -71,7 +71,7 @@ Core Animation工具也提供了一系列复选框选项来帮助调试渲染瓶
 * Flash Updated Regions - 这个选项会对重绘的内容高亮成黄色（也就是任何在软件层面使用Core Graphics绘制的图层）。这种绘图的速度很慢。如果频繁发生这种情况的话，这意味着有一个隐藏的bug或者说通过增加缓存或者使用替代方案会有提升性能的空间。
 
 ### OpenGL ES驱动
-![](opengl es driver.jpeg)
+![](images/opengl es driver.jpeg)
 侧栏的右边是一系列有用的工具。其中和Core Animation性能最相关的是如下几点：
 * Renderer Utilization - 如果这个值超过了~50%，就意味着你的动画可能对帧率有所限制，很可能因为离屏渲染或者是重绘导致的过度混合。
 * Tiler Utilization - 如果这个值超过了~50%，就意味着你的动画可能限制于几何结构方面，也就是在屏幕上有太多的图层占用了。

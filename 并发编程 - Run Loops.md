@@ -10,7 +10,7 @@ It is a loop your thread enters and uses to run event handlers in response to in
 A run loop receives events from two different types of sources. `Input sources` deliver asynchronous events, usually messages from another thread or from a different application. `Timer sources` deliver synchronous events, occurring at a scheduled time or repeating interval.
 
 **Structure of a run loop and its sources**
-![Structure of a run loop and its sources](Structure of a run loop and its sources.jpg)
+![Structure of a run loop and its sources](images/Structure of a run loop and its sources.jpg)
 
 In addition to handling sources of input, run loops also generate **notifications** about the run loop’s behavior. Registered `run-loop observers` can receive these notifications and use them to do additional processing on the thread. You use Core Foundation to install run-loop observers on your threads.
 
@@ -129,4 +129,4 @@ There are several ways to start the run loop, including the following:
 ---
 Figure 3-2 shows a sample configuration of a custom input source. In this example, the application’s main thread maintains references to the input source, the custom command buffer for that input source, and the run loop on which the input source is installed. When the main thread has a task it wants to hand off to the worker thread, it posts a command to the command buffer along with any information needed by the worker thread to start the task. (Because both the main thread and the input source of the worker thread have access to the command buffer, that access must be synchronized.) Once the command is posted, the main thread signals the input source and wakes up the worker thread’s run loop. Upon receiving the wake up command, the run loop calls the handler for the input source, which processes the commands found in the command buffer.
 
-![Operating a custom input source](Operating a custom input source.jpg)
+![Operating a custom input source](images/Operating a custom input source.jpg)
