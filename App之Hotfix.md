@@ -14,7 +14,7 @@
 * [Hotfix (1300+ star)](https://github.com/dodola/HotFix)
 * Tinker (7400+ star，wx出品)
 
-几个方案的**优缺点**比较如下：
+几个方案的**优缺点**比较如下：   
 ![](images/android_hot_fix_compare_2.png)
 
 同时从使用角度而言
